@@ -8,6 +8,8 @@ sequenceDiagram
     server-->>browser: URL Redirect (status code 302)
     deactivate server
 
+    Note right of browser: The server executes JavaScript code to handle the POST request, adding the new note and telling the browser to reload
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
     server-->>browser: HTML document
