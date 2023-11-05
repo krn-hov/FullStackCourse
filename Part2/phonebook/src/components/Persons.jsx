@@ -1,17 +1,19 @@
-const Person = (props) => {
-    return (
-      <div>
-        <p>{props.name} {props.number}</p>
-      </div>
-    )
-}
+const Person = ({person, deletePerson}) => (
+  <li>
+    {person.name} {person.number}
+    <button onClick={() => deletePerson(person.id)}>Delete</button>
+  </li>
+)
 
-const Persons = (props) => {
-    return (
-        <div>
-        {props.personList.map(person => <Person key={person.number} name={person.name} number={person.number}/>)}
-        </div>
-    )   
+const Persons = ({persons, deletePerson}) => {
+  return (
+    <div>
+      <ul>
+        {persons.map(person => <Person key={person.id} person={person} 
+        deletePerson={deletePerson}/>)}
+      </ul>
+    </div>
+  )
 }
 
 export default Persons
