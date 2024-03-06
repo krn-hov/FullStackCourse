@@ -77,6 +77,9 @@ const App = () => {
         setNotifMessage(`Added ${nameObject.name}`)
         setTimeout(() => {setNotifMessage(null)}, 5000)
       })
+      .catch(error => {
+        console.log(error.response.data.error)
+      })
   }
 
   const showOnly = (event) => {
